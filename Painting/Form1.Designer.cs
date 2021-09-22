@@ -51,13 +51,17 @@ namespace Painting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 498);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.KeyDown += Form1_KeyDown;
+            this.KeyUp += Form1_KeyUp;
             this.ResumeLayout(false);
 
         }
+
+
 
         #endregion
 
