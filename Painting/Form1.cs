@@ -33,12 +33,24 @@ namespace Painting
                 npc1.speed.X = -1;
                 npc1.animation.CurrentState = AnimationStates.walk;
             }
+            if(e.KeyCode == Keys.Up)
+            {
+                npc1.speed.Y = -1;
+                npc1.animation.CurrentState = AnimationStates.walk;
+            }
+            if(e.KeyCode == Keys.Down)
+            {
+                npc1.speed.Y = 1;
+                npc1.animation.CurrentState = AnimationStates.walk;
+            }
         }
         private void Form1_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Right || e.KeyCode == Keys.Left)
+            if (e.KeyCode == Keys.Right || e.KeyCode == Keys.Left ||
+                e.KeyCode == Keys.Up || e.KeyCode == Keys.Down)
             {
                 npc1.speed.X = 0;
+                npc1.speed.Y = 0;
                 npc1.animation.CurrentState = AnimationStates.idle;
             }
 
