@@ -7,7 +7,7 @@ namespace Painting
         public class NPC : MovableObject
         {
             string greeting;
-            //Player player;
+            //NPC NPC;
             public NPC(Point location, Size size, Image image, Point speed, string greeting)
                 : base(location, size, image, speed)
             {

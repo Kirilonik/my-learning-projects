@@ -17,9 +17,13 @@ namespace Painting
         BufferedGraphics myBuffer;
         BufferedGraphicsContext currentContext;
 
-        NPC npc1 = new NPC(new Point(170, 240), new Size(50, 50),
+        Player npc1 = new Player(new Point(220, 240), new Size(50, 50),
             Image.FromFile("example-23514.jpg"), new Point(0, 0),
             "Когда-то меня тоже вела дорога приключений,\n но потом мне прострелили колено.");
+
+        NPC npc2 = new NPC(new Point(100, 150), new Size(50, 50),
+            Image.FromFile("example-23514.jpg"), new Point(0, 0),
+            " ");
 
         private void Form1_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
@@ -71,7 +75,12 @@ namespace Painting
                 npc1.animation.LoadSprites(folder,
                     Animation.StringToState[folder.Split('\\').Last<string>()]);
             }
-            
+            foreach (var folder in Directory.GetDirectories(Animation.Path + "\\npc"))
+            {
+                npc2.animation.LoadSprites(folder,
+                    Animation.StringToState[folder.Split('\\').Last<string>()]);
+            }
+
         }
 
 
@@ -88,6 +97,9 @@ namespace Painting
             npc1.Move();
             npc1.DrawImage(graphics);
             npc1.DrawGreeting(graphics);
+            npc2.Move();
+            npc2.DrawImage(graphics);
+            npc2.DrawGreeting(graphics);
 
             myBuffer.Render();
         }

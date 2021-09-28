@@ -12,7 +12,7 @@ namespace Painting
             {
                 this.speed = speed;
             }
-            public void Move()
+            public virtual void Move()
             {
                 location.X = location.X + speed.X;
                 location.Y = location.Y + speed.Y;
