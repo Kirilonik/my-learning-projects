@@ -1,0 +1,10 @@
+C:\Users\gamec\source\repos\Painting\bin\Debug\Painting.exe.config
+C:\Users\gamec\source\repos\Painting\bin\Debug\Painting.exe
+C:\Users\gamec\source\repos\Painting\bin\Debug\Painting.pdb
+C:\Users\gamec\source\repos\Painting\obj\Debug\Painting.csprojAssemblyReference.cache
+C:\Users\gamec\source\repos\Painting\obj\Debug\Painting.Form1.resources
+C:\Users\gamec\source\repos\Painting\obj\Debug\Painting.Properties.Resources.resources
+C:\Users\gamec\source\repos\Painting\obj\Debug\Painting.csproj.GenerateResource.cache
+C:\Users\gamec\source\repos\Painting\obj\Debug\Painting.csproj.CoreCompileInputs.cache
+C:\Users\gamec\source\repos\Painting\obj\Debug\Painting.exe
+C:\Users\gamec\source\repos\Painting\obj\Debug\Painting.pdb

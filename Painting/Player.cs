@@ -20,6 +20,7 @@ namespace Painting
             }
             public override void Move()
             {
+                collider.UpdateCollisions();
                 World.WorldShift -= speed.X;
             }
             public override void DrawImage(Graphics gr)
@@ -33,6 +34,7 @@ namespace Painting
                         (int)(current.Width*coef),
                         (int)(current.Height*coef)))
                     );
+                gr.DrawRectangle(Pens.Brown, new Rectangle(location, size));
             }
             public void AI()
             {

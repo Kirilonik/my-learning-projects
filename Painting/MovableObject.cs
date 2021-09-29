@@ -14,6 +14,7 @@ namespace Painting
             }
             public virtual void Move()
             {
+                collider.UpdateCollisions();
                 location.X = location.X + speed.X;
                 location.Y = location.Y + speed.Y;
             }

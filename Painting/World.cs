@@ -9,5 +9,6 @@ namespace Painting
     class World
     {
         public static int WorldShift = 0;
+        public static List<Collider> collidersInWorld = new List<Collider>();
     }
 }
