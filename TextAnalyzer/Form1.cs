@@ -20,11 +20,12 @@ namespace TextAnalyzer
             saveFileDialog1.Filter = ("Text file(*.txt)|*.txt");
         }
         // узнать про символ переноса строки
-        private void print_Statistics(string countWords_s, string numUniqueWords)
+        private void print_Statistics(string countWords_s, string numUniqueWords, string proc_str)
         {
             string result = "";
             result += "Number of words: " + countWords_s + '\n';
             result += "Number of unique words: " + numUniqueWords + '\n';
+            result += "Percentage of chars: " + '\n' + proc_str;
             textBox2.Text = result;
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -46,7 +47,31 @@ namespace TextAnalyzer
             string[] words_array = mainString.Split(separators, StringSplitOptions.RemoveEmptyEntries);
             // TODO here
 
-            print_Statistics(countWords_s, numUniqueWords);
+            // Char percentage here
+            // лагать будет жуть пофикси а
+            string alphabet = "abcdefghijklmnopqrstuvwxyzабвгдеёжзийклмнопрстуфхцчшщъыьэюя";
+            Dictionary<char, double> chars = new Dictionary<char, double>(59);
+            foreach(char p in alphabet)
+            {
+                chars.Add(p, 0.0);
+            }
+            for (int i = 0; i< words_array.Length; i++)
+            {
+                foreach(char j in words_array[i])
+                {
+                    chars[j] += 1;
+                }
+            }
+            string proc_str = "";
+            foreach(KeyValuePair<char, double> p in chars)
+            {
+                proc_str += p.Key.ToString() + ": " + p.Value.ToString() + "\n";
+            }
+
+
+
+
+            print_Statistics(countWords_s, numUniqueWords, proc_str);
         }
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
