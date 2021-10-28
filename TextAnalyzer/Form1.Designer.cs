@@ -49,7 +49,7 @@ namespace TextAnalyzer
             this.textBox1.Location = new System.Drawing.Point(12, 31);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(599, 247);
+            this.textBox1.Size = new System.Drawing.Size(698, 247);
             this.textBox1.TabIndex = 1;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -60,7 +60,7 @@ namespace TextAnalyzer
             this.файлToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(625, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(722, 28);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -72,27 +72,27 @@ namespace TextAnalyzer
             this.сохранитьToolStripMenuItem,
             this.сбросToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 26);
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
             // открытьФайлToolStripMenuItem
             // 
             this.открытьФайлToolStripMenuItem.Name = "открытьФайлToolStripMenuItem";
-            this.открытьФайлToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.открытьФайлToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.открытьФайлToolStripMenuItem.Text = "Открыть";
             this.открытьФайлToolStripMenuItem.Click += new System.EventHandler(this.открытьФайлToolStripMenuItem_Click);
             // 
             // сохранитьToolStripMenuItem
             // 
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
             this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
             // 
             // сбросToolStripMenuItem
             // 
             this.сбросToolStripMenuItem.Name = "сбросToolStripMenuItem";
-            this.сбросToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.сбросToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.сбросToolStripMenuItem.Text = "Сброс";
             this.сбросToolStripMenuItem.Click += new System.EventHandler(this.сбросToolStripMenuItem_Click);
             // 
@@ -104,10 +104,10 @@ namespace TextAnalyzer
             // 
             this.textBox2.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.textBox2.Location = new System.Drawing.Point(12, 394);
+            this.textBox2.Location = new System.Drawing.Point(12, 321);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(599, 312);
+            this.textBox2.Size = new System.Drawing.Size(698, 385);
             this.textBox2.TabIndex = 4;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -115,7 +115,7 @@ namespace TextAnalyzer
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label1.Location = new System.Drawing.Point(12, 360);
+            this.label1.Location = new System.Drawing.Point(12, 286);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 32);
             this.label1.TabIndex = 5;
@@ -125,7 +125,7 @@ namespace TextAnalyzer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 718);
+            this.ClientSize = new System.Drawing.Size(722, 718);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);

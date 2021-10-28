@@ -23,14 +23,14 @@ namespace TextAnalyzer
         private void print_Statistics(string countWords_s, string numUniqueWords, string proc_str)
         {
             string result = "";
-            result += "Number of words: " + countWords_s + '\n';
-            result += "Number of unique words: " + numUniqueWords + '\n';
-            result += "Percentage of chars: " + '\n' + proc_str;
+            result += "Number of words: " + countWords_s + '\r' + '\n';
+            result += "Number of unique words: " + numUniqueWords + '\r' + '\n';
+            result += "Percentage of chars: " + '\r' + '\n' + proc_str;
             textBox2.Text = result;
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            string mainString = textBox1.Text; //.Replace(".", " ").Replace(",", " ").Replace(":", " ").Replace(";", " ");
+            string mainString = textBox1.Text.ToLower(); //.Replace(".", " ").Replace(",", " ").Replace(":", " ").Replace(";", " ");
             char[] separators = " \r\n,.()[]{}\"'&^$!/\\".ToArray();
             // Counting the number of words in the text
             int countWords = mainString.Split(separators, StringSplitOptions.RemoveEmptyEntries).Length;
@@ -55,18 +55,20 @@ namespace TextAnalyzer
             {
                 chars.Add(p, 0.0);
             }
+            int q = 0; // count of chars all
             for (int i = 0; i< words_array.Length; i++)
             {
                 foreach(char j in words_array[i])
                 {
+                    q++;
                     chars[j] += 1;
                 }
             }
+            chars = chars.OrderBy(pair => -pair.Value).ToDictionary(pair => pair.Key, pair => pair.Value);
+
             string proc_str = "";
             foreach(KeyValuePair<char, double> p in chars)
-            {
-                proc_str += p.Key.ToString() + ": " + p.Value.ToString() + "\n";
-            }
+                    proc_str += p.Key.ToString() + ": " + (Math.Round(p.Value / q * 100, 1)).ToString() + '%' + '\r' + "\n";
 
 
 
