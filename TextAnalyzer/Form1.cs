@@ -18,6 +18,8 @@ namespace TextAnalyzer
         {
             InitializeComponent();
             saveFileDialog1.Filter = ("Text file(*.txt)|*.txt");
+            textBox2.ScrollBars = ScrollBars.Vertical;
+
         }
         // узнать про символ переноса строки
         private void print_Statistics(string countWords_s, string numUniqueWords, string proc_str)
@@ -113,6 +115,10 @@ namespace TextAnalyzer
 
         }
 
+        private void количествоСловToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textBox2.Text = "";
 
+        }
     }
 }
