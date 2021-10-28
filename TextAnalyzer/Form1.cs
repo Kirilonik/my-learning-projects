@@ -19,15 +19,16 @@ namespace TextAnalyzer
             InitializeComponent();
             saveFileDialog1.Filter = ("Text file(*.txt)|*.txt");
             textBox2.ScrollBars = ScrollBars.Vertical;
-
+            // TODO ПЕРЕДЕЛАЙ ВСЕ НАФИГ под статичные окошки
         }
         // узнать про символ переноса строки
-        private void print_Statistics(string countWords_s, string numUniqueWords, string proc_str)
+        private void print_Statistics(string countWords_s, string numUniqueWords, string proc_str, string biggest_words)
         {
             string result = "";
             result += "Number of words: " + countWords_s + '\r' + '\n';
             result += "Number of unique words: " + numUniqueWords + '\r' + '\n';
             result += "Percentage of chars: " + '\r' + '\n' + proc_str;
+            result += "Top 10 biggest words:" + "\r" + "\n" + biggest_words;
             textBox2.Text = result;
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -47,7 +48,14 @@ namespace TextAnalyzer
 
             // top 10 most bigger words
             string[] words_array = mainString.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            Array.Sort(words_array, (x, y) => -x.Length.CompareTo(y.Length));
+            string biggest_words = "";
+            for (int i = 0; i<words_array.Length && i<10; i++)
+            {
+                biggest_words += words_array[i] + "\r" + "\n";
+            }
             // TODO here
+
 
             // Char percentage here
             // лагать будет жуть пофикси а
@@ -70,12 +78,12 @@ namespace TextAnalyzer
 
             string proc_str = "";
             foreach(KeyValuePair<char, double> p in chars)
+                if (p.Value != 0.0)
                     proc_str += p.Key.ToString() + ": " + (Math.Round(p.Value / q * 100, 1)).ToString() + '%' + '\r' + "\n";
 
 
 
-
-            print_Statistics(countWords_s, numUniqueWords, proc_str);
+            print_Statistics(countWords_s, numUniqueWords, proc_str, biggest_words);
         }
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -105,19 +113,6 @@ namespace TextAnalyzer
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-        }
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-        }
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void количествоСловToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            textBox2.Text = "";
 
         }
     }

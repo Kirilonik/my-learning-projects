@@ -40,12 +40,6 @@ namespace TextAnalyzer
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.статистикаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.количествоСловToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.количествоУникальныхСловToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.самыхДлинныхСловToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.самыхЧастыхСловToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.процентноеСоотношениеБуквToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,14 +57,12 @@ namespace TextAnalyzer
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.файлToolStripMenuItem,
-            this.статистикаToolStripMenuItem});
+            this.файлToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(722, 28);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // файлToolStripMenuItem
             // 
@@ -116,7 +108,6 @@ namespace TextAnalyzer
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(698, 385);
             this.textBox2.TabIndex = 4;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label1
             // 
@@ -127,49 +118,6 @@ namespace TextAnalyzer
             this.label1.Size = new System.Drawing.Size(111, 32);
             this.label1.TabIndex = 5;
             this.label1.Text = "Statistics:";
-            // 
-            // статистикаToolStripMenuItem
-            // 
-            this.статистикаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.количествоСловToolStripMenuItem,
-            this.количествоУникальныхСловToolStripMenuItem,
-            this.самыхДлинныхСловToolStripMenuItem,
-            this.самыхЧастыхСловToolStripMenuItem,
-            this.процентноеСоотношениеБуквToolStripMenuItem});
-            this.статистикаToolStripMenuItem.Name = "статистикаToolStripMenuItem";
-            this.статистикаToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
-            this.статистикаToolStripMenuItem.Text = "Статистика";
-            // 
-            // количествоСловToolStripMenuItem
-            // 
-            this.количествоСловToolStripMenuItem.Name = "количествоСловToolStripMenuItem";
-            this.количествоСловToolStripMenuItem.Size = new System.Drawing.Size(313, 26);
-            this.количествоСловToolStripMenuItem.Text = "Количество слов";
-            this.количествоСловToolStripMenuItem.Click += new System.EventHandler(this.количествоСловToolStripMenuItem_Click);
-            // 
-            // количествоУникальныхСловToolStripMenuItem
-            // 
-            this.количествоУникальныхСловToolStripMenuItem.Name = "количествоУникальныхСловToolStripMenuItem";
-            this.количествоУникальныхСловToolStripMenuItem.Size = new System.Drawing.Size(313, 26);
-            this.количествоУникальныхСловToolStripMenuItem.Text = "Количество уникальных слов";
-            // 
-            // самыхДлинныхСловToolStripMenuItem
-            // 
-            this.самыхДлинныхСловToolStripMenuItem.Name = "самыхДлинныхСловToolStripMenuItem";
-            this.самыхДлинныхСловToolStripMenuItem.Size = new System.Drawing.Size(313, 26);
-            this.самыхДлинныхСловToolStripMenuItem.Text = "10 самых длинных слов";
-            // 
-            // самыхЧастыхСловToolStripMenuItem
-            // 
-            this.самыхЧастыхСловToolStripMenuItem.Name = "самыхЧастыхСловToolStripMenuItem";
-            this.самыхЧастыхСловToolStripMenuItem.Size = new System.Drawing.Size(313, 26);
-            this.самыхЧастыхСловToolStripMenuItem.Text = "10 самых частых слов";
-            // 
-            // процентноеСоотношениеБуквToolStripMenuItem
-            // 
-            this.процентноеСоотношениеБуквToolStripMenuItem.Name = "процентноеСоотношениеБуквToolStripMenuItem";
-            this.процентноеСоотношениеБуквToolStripMenuItem.Size = new System.Drawing.Size(313, 26);
-            this.процентноеСоотношениеБуквToolStripMenuItem.Text = "Процентное соотношение букв";
             // 
             // Form1
             // 
@@ -203,12 +151,6 @@ namespace TextAnalyzer
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ToolStripMenuItem статистикаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem количествоСловToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem количествоУникальныхСловToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem самыхДлинныхСловToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem самыхЧастыхСловToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem процентноеСоотношениеБуквToolStripMenuItem;
     }
 }
 
