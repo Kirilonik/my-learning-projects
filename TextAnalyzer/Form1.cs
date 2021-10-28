@@ -26,52 +26,62 @@ namespace TextAnalyzer
             // TODO ПЕРЕДЕЛАЙ ВСЕ НАФИГ под статичные окошки
         }
         // узнать про символ переноса строки
-        private void print_Statistics(int countWords_s, int numUniqueWords, string proc_str, string biggest_words)
+        private void print_Statistics(int countWords_s, int numUniqueWords, string proc_str,
+            string biggest_words, string frequent_string)
         {
             total_words_lable.Text = countWords_s.ToString();
             total_unique_words_lable.Text = numUniqueWords.ToString();
             percentageBox.Text = proc_str;
             longBox.Text = biggest_words;
+            frequentBox.Text = frequent_string;
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             string mainString = textBox1.Text.ToLower();
             char[] separators = " \r\n,.()[]{}\"'&^$!/\\><=-+|`~@#%*;:".ToArray();
+            string[] arr_main_sring = mainString.Split(separators, StringSplitOptions.RemoveEmptyEntries);
 
             // Counting the number of words in the text
-            string[] arr_main_sring = mainString.Split(separators, StringSplitOptions.RemoveEmptyEntries);
             int countWords = arr_main_sring.Length;
-            mainString = "";
-            for(int i = 0; i < countWords; i++)
-                mainString += $"{arr_main_sring[i]} ";
+
 
             // Countiong unique words
-            string uniqueString = mainString;
-            uniqueString = new Regex("[^а-яА-Яa-zA-Z0-9]").Replace(uniqueString, " ");
-            var words = uniqueString.Split(separators, StringSplitOptions.RemoveEmptyEntries);
-            var wordQuery = words.Distinct();
-            int countUniqueWords = wordQuery.Count();
+            string[] words_unique = (from string word in arr_main_sring orderby word select word).Distinct().ToArray();
+            int countUniqueWords = words_unique.Count();
 
             // top 10 most bigger words
-            string[] words_array = mainString.Split(separators, StringSplitOptions.RemoveEmptyEntries);
-            Array.Sort(words_array, (x, y) => -x.Length.CompareTo(y.Length));
+            Array.Sort(arr_main_sring, (x, y) => -x.Length.CompareTo(y.Length));
             string long_words = "";
-            for (int i = 0; i<words_array.Length && i<10; i++)
-                long_words += $"{words_array[i]} \r\n";
+            for (int i = 0; i < arr_main_sring.Length && i < 10; i++)
+                long_words += $"{arr_main_sring[i]} \r\n";
 
             // Most frequent words
+            Dictionary<string, int> frequent = new Dictionary<string, int>(countUniqueWords);
+            foreach (string word in words_unique)
+                frequent.Add(word, 0);
+            foreach (string word in arr_main_sring)
+                frequent[word] += 1;
+            frequent = frequent.OrderBy(pair => -pair.Value).ToDictionary(pair => pair.Key, pair => pair.Value);
+            string frequent_string = "";
+            int t = 0;
+            foreach (KeyValuePair<string, int> word in frequent)
+            {
+                if (t < 10)
+                    frequent_string += $"{word.Key.ToString()}: {word.Value.ToString()} \r\n";
+                t++;
+            }
 
 
             // Char percentage here
             // лагать будет жуть пофикси а
             string alphabet = "abcdefghijklmnopqrstuvwxyzабвгдеёжзийклмнопрстуфхцчшщъыьэюя1234567890";
             Dictionary<char, double> chars = new Dictionary<char, double>(59);
-            foreach(char p in alphabet)
+            foreach (char p in alphabet)
                 chars.Add(p, 0.0);
 
             int q = 0; // count of chars all
-            for (int i = 0; i< words_array.Length; i++)
-                foreach(char j in words_array[i])
+            for (int i = 0; i< arr_main_sring.Length; i++)
+                foreach(char j in arr_main_sring[i])
                 {
                     q++;
                     chars[j] += 1;
@@ -79,13 +89,12 @@ namespace TextAnalyzer
 
             chars = chars.OrderBy(pair => -pair.Value).ToDictionary(pair => pair.Key, pair => pair.Value);
             string proc_str = "";
-            foreach(KeyValuePair<char, double> p in chars)
+            foreach (KeyValuePair<char, double> p in chars)
                 if (p.Value != 0.0)
-                    proc_str += p.Key.ToString() + ": " + (Math.Round(p.Value / q * 100, 1)).ToString() + '%' + '\r' + "\n";
+                    proc_str += $"{p.Key.ToString()}: {(Math.Round(p.Value / q * 100, 1)).ToString()}%\r\n";
 
 
-
-            print_Statistics(countWords, countUniqueWords, proc_str, long_words);
+            print_Statistics(countWords, countUniqueWords, proc_str, long_words, frequent_string);
         }
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
