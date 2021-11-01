@@ -22,10 +22,7 @@ namespace TextAnalyzer
             longBox.ScrollBars = ScrollBars.Vertical;
             percentageBox.ScrollBars = ScrollBars.Vertical;
             frequentBox.ScrollBars = ScrollBars.Vertical;
-
-            // TODO ПЕРЕДЕЛАЙ ВСЕ НАФИГ под статичные окошки
         }
-        // узнать про символ переноса строки
         private void print_Statistics(int countWords_s, int numUniqueWords, string proc_str,
             string biggest_words, string frequent_string)
         {
@@ -44,18 +41,31 @@ namespace TextAnalyzer
             // Counting the number of words in the text
             int countWords = arr_main_sring.Length;
 
-
             // Countiong unique words
             string[] words_unique = (from string word in arr_main_sring orderby word select word).Distinct().ToArray();
             int countUniqueWords = words_unique.Count();
 
             // top 10 most bigger words
+            string long_words = mostBiggerWords(arr_main_sring);
+
+            // Most frequent words
+            string frequent_string = frequentWords(countUniqueWords, words_unique, arr_main_sring);
+
+            // Char percentage here
+            string proc_str = charPercentage(arr_main_sring);
+
+            print_Statistics(countWords, countUniqueWords, proc_str, long_words, frequent_string);
+        }
+        private string mostBiggerWords(string[] arr_main_sring)
+        {
             Array.Sort(arr_main_sring, (x, y) => -x.Length.CompareTo(y.Length));
             string long_words = "";
             for (int i = 0; i < arr_main_sring.Length && i < 10; i++)
                 long_words += $"{arr_main_sring[i]} \r\n";
-
-            // Most frequent words
+            return long_words;
+        }
+        private string frequentWords(int countUniqueWords, string[] words_unique, string [] arr_main_sring)
+        {
             Dictionary<string, int> frequent = new Dictionary<string, int>(countUniqueWords);
             foreach (string word in words_unique)
                 frequent.Add(word, 0);
@@ -70,18 +80,18 @@ namespace TextAnalyzer
                     frequent_string += $"{word.Key.ToString()}: {word.Value.ToString()} \r\n";
                 t++;
             }
-
-
-            // Char percentage here
-            // лагать будет жуть пофикси а
+            return frequent_string;
+        }
+        private string charPercentage( string[] arr_main_sring)
+        {
             string alphabet = "abcdefghijklmnopqrstuvwxyzабвгдеёжзийклмнопрстуфхцчшщъыьэюя1234567890";
             Dictionary<char, double> chars = new Dictionary<char, double>(59);
             foreach (char p in alphabet)
                 chars.Add(p, 0.0);
 
             int q = 0; // count of chars all
-            for (int i = 0; i< arr_main_sring.Length; i++)
-                foreach(char j in arr_main_sring[i])
+            for (int i = 0; i < arr_main_sring.Length; i++)
+                foreach (char j in arr_main_sring[i])
                 {
                     q++;
                     chars[j] += 1;
@@ -92,9 +102,7 @@ namespace TextAnalyzer
             foreach (KeyValuePair<char, double> p in chars)
                 if (p.Value != 0.0)
                     proc_str += $"{p.Key.ToString()}: {(Math.Round(p.Value / q * 100, 1)).ToString()}%\r\n";
-
-
-            print_Statistics(countWords, countUniqueWords, proc_str, long_words, frequent_string);
+            return proc_str;
         }
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
