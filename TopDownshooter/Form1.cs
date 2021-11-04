@@ -40,6 +40,7 @@ namespace TopDownshooter
                 gameOver = true;
                 player.Image = Properties.Resources.dead;
                 GameTimer.Stop();
+                gameOver = true;
             }
 
             txtAmmo.Text = $"Ammo: {ammo}";
@@ -55,6 +56,19 @@ namespace TopDownshooter
                 player.Top -= speed;
             if (goDown == true && player.Top + player.Height < this.ClientSize.Height)
                 player.Top += speed;
+
+            foreach(Control x in this.Controls)
+            {
+                if(x is PictureBox && (string)x.Tag == "ammo")
+                    if (player.Bounds.IntersectsWith(x.Bounds))
+                    {
+                        this.Controls.Remove(x);
+                        ((PictureBox)x).Dispose();
+                        ammo += 5;
+                    }
+            }
+
+
         }
 
         private void KeyIsDown(object sender, KeyEventArgs e)
