@@ -28,6 +28,7 @@ namespace TopDownshooter
         public Form1()
         {
             InitializeComponent();
+            RestartGame();
         }
 
         private void MainTimerEvent(object sender, EventArgs e)
@@ -57,6 +58,7 @@ namespace TopDownshooter
             if (goDown == true && player.Top + player.Height < this.ClientSize.Height)
                 player.Top += speed;
 
+            // поднятие потронов
             foreach(Control x in this.Controls)
             {
                 if(x is PictureBox && (string)x.Tag == "ammo")
@@ -111,6 +113,7 @@ namespace TopDownshooter
             if (e.KeyCode == Keys.Down)
                 goDown = false;
 
+            // логика выстрела
             if(e.KeyCode == Keys.Space && ammo > 0)
             {
                 ammo--;
@@ -128,8 +131,6 @@ namespace TopDownshooter
             shootBullet.bulletLeft = player.Left + (player.Width / 2);
             shootBullet.bulletTop = player.Top + (player.Height / 2);
             shootBullet.MakeBullet(this);
-
-
         }
 
         private void MakeZombies()
@@ -143,7 +144,6 @@ namespace TopDownshooter
             zombiesList.Add(zombie);
             this.Controls.Add(zombie);
             //player.BringToFront();
-
         }
         private void DropAmmo()
         {
@@ -160,7 +160,22 @@ namespace TopDownshooter
         }
         private void RestartGame()
         {
+            player.Image = Properties.Resources.up;
+            foreach (PictureBox i in zombiesList)
+                this.Controls.Remove(i);
 
+            zombiesList.Clear();
+
+            for(int i = 0; i < 3; i++)
+                MakeZombies();
+
+            goUp = false; goDown = false;
+            goLeft = false; goRight = false;
+            playerHealth = 100;
+            kills = 0;
+            ammo = 10;
+
+            GameTimer.Start();
         }
     }
 }

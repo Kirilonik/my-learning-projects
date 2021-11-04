@@ -14,7 +14,7 @@ namespace TopDownshooter
         public string direction;
         public int bulletLeft;
         public int bulletTop;
-        private int speed = 20;
+        private int speed = 30;
         private PictureBox bullet = new PictureBox();
         private Timer bulletTimer = new Timer();
 

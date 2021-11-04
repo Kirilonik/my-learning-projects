@@ -109,7 +109,10 @@ namespace TopDownshooter
             this.Controls.Add(this.txtKills);
             this.Controls.Add(this.txtAmmo);
             this.Controls.Add(this.player);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "Kiirka Killer";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
