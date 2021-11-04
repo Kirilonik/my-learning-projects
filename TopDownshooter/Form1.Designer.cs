@@ -29,11 +29,15 @@ namespace TopDownshooter
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.txtAmmo = new System.Windows.Forms.Label();
             this.txtKills = new System.Windows.Forms.Label();
             this.Health = new System.Windows.Forms.Label();
             this.barHealth = new System.Windows.Forms.ProgressBar();
+            this.player = new System.Windows.Forms.PictureBox();
+            this.GameTimer = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             this.SuspendLayout();
             // 
             // txtAmmo
@@ -68,7 +72,6 @@ namespace TopDownshooter
             this.Health.Size = new System.Drawing.Size(95, 29);
             this.Health.TabIndex = 2;
             this.Health.Text = "Health ";
-            this.Health.Click += new System.EventHandler(this.Health_Click);
             // 
             // barHealth
             // 
@@ -78,6 +81,22 @@ namespace TopDownshooter
             this.barHealth.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.barHealth.TabIndex = 3;
             this.barHealth.Value = 100;
+            // 
+            // player
+            // 
+            this.player.Image = global::TopDownshooter.Properties.Resources.up;
+            this.player.Location = new System.Drawing.Point(605, 336);
+            this.player.Name = "player";
+            this.player.Size = new System.Drawing.Size(71, 100);
+            this.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.player.TabIndex = 4;
+            this.player.TabStop = false;
+            // 
+            // GameTimer
+            // 
+            this.GameTimer.Enabled = true;
+            this.GameTimer.Interval = 20;
+            this.GameTimer.Tick += new System.EventHandler(this.MainTimerEvent);
             // 
             // Form1
             // 
@@ -89,9 +108,13 @@ namespace TopDownshooter
             this.Controls.Add(this.Health);
             this.Controls.Add(this.txtKills);
             this.Controls.Add(this.txtAmmo);
+            this.Controls.Add(this.player);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Kiirka Killer";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
+            ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -103,6 +126,8 @@ namespace TopDownshooter
         private System.Windows.Forms.Label txtKills;
         private System.Windows.Forms.Label Health;
         private System.Windows.Forms.ProgressBar barHealth;
+        private System.Windows.Forms.PictureBox player;
+        private System.Windows.Forms.Timer GameTimer;
     }
 }
 
