@@ -37,6 +37,7 @@ namespace TopDownshooter
             this.barHealth = new System.Windows.Forms.ProgressBar();
             this.player = new System.Windows.Forms.PictureBox();
             this.GameTimer = new System.Windows.Forms.Timer(this.components);
+            this.pressEnter = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +57,7 @@ namespace TopDownshooter
             this.txtKills.AutoSize = true;
             this.txtKills.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtKills.ForeColor = System.Drawing.Color.White;
-            this.txtKills.Location = new System.Drawing.Point(600, 9);
+            this.txtKills.Location = new System.Drawing.Point(574, 9);
             this.txtKills.Name = "txtKills";
             this.txtKills.Size = new System.Drawing.Size(92, 29);
             this.txtKills.TabIndex = 1;
@@ -98,12 +99,25 @@ namespace TopDownshooter
             this.GameTimer.Interval = 20;
             this.GameTimer.Tick += new System.EventHandler(this.MainTimerEvent);
             // 
+            // pressEnter
+            // 
+            this.pressEnter.AutoSize = true;
+            this.pressEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pressEnter.ForeColor = System.Drawing.Color.White;
+            this.pressEnter.Location = new System.Drawing.Point(360, 330);
+            this.pressEnter.Name = "pressEnter";
+            this.pressEnter.Size = new System.Drawing.Size(518, 55);
+            this.pressEnter.TabIndex = 5;
+            this.pressEnter.Text = "Press Enter to Restart";
+            this.pressEnter.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.Controls.Add(this.pressEnter);
             this.Controls.Add(this.barHealth);
             this.Controls.Add(this.Health);
             this.Controls.Add(this.txtKills);
@@ -131,6 +145,7 @@ namespace TopDownshooter
         private System.Windows.Forms.ProgressBar barHealth;
         private System.Windows.Forms.PictureBox player;
         private System.Windows.Forms.Timer GameTimer;
+        private System.Windows.Forms.Label pressEnter;
     }
 }
 

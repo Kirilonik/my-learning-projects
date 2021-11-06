@@ -42,6 +42,7 @@ namespace TopDownshooter
                 player.Image = Properties.Resources.dead;
                 GameTimer.Stop();
                 gameOver = true;
+                pressEnter.Visible = true;
             }
 
             // меняю цвет на красный если снарядов 0
@@ -214,6 +215,7 @@ namespace TopDownshooter
         }
         private void RestartGame()
         {
+            pressEnter.Visible = false;
             player.Image = Properties.Resources.up;
             foreach (PictureBox i in zombiesList)
                 this.Controls.Remove(i);
