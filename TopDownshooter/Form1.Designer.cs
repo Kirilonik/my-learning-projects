@@ -77,8 +77,8 @@ namespace TopDownshooter
             // 
             this.barHealth.Location = new System.Drawing.Point(1095, 12);
             this.barHealth.Name = "barHealth";
+            this.barHealth.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.barHealth.Size = new System.Drawing.Size(155, 26);
-            this.barHealth.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.barHealth.TabIndex = 3;
             this.barHealth.Value = 100;
             // 

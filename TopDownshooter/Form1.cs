@@ -44,7 +44,12 @@ namespace TopDownshooter
                 gameOver = true;
             }
 
+            // меняю цвет на красный если снарядов 0
             txtAmmo.Text = $"Ammo: {ammo}";
+            if (ammo == 0)
+                txtAmmo.ForeColor = Color.Red;
+            else
+                txtAmmo.ForeColor = Color.White;
             txtKills.Text = $"Kills: {kills}";
 
             // Логика движения игрока
@@ -68,13 +73,59 @@ namespace TopDownshooter
                         ((PictureBox)x).Dispose();
                         ammo += 5;
                     }
+
+                // логика здоровья, что то в духе AI для зомбей
+                if (x is PictureBox && (string)x.Tag == "zombie")
+                {
+                    if (player.Bounds.IntersectsWith(x.Bounds))
+                        playerHealth -= 1;
+
+
+                    if(x.Left > player.Left)
+                    {
+                        x.Left -= zombieSpeed;
+                        ((PictureBox)x).Image = Properties.Resources.zleft;
+                    }
+                    if (x.Left < player.Left)
+                    {
+                        x.Left += zombieSpeed;
+                        ((PictureBox)x).Image = Properties.Resources.zright;
+                    }
+                    if (x.Top > player.Top)
+                    {
+                        x.Top -= zombieSpeed;
+                        ((PictureBox)x).Image = Properties.Resources.zup;
+                    }
+                    if (x.Top < player.Top)
+                    {
+                        x.Top += zombieSpeed;
+                        ((PictureBox)x).Image = Properties.Resources.zdown;
+                    }
+                }
+
+                // убийство зомбя
+                foreach(Control j in this.Controls)
+                    if (j is PictureBox && (string)j.Tag == "bullet" &&
+                        x is PictureBox && (string)x.Tag == "zombie")
+                        if (x.Bounds.IntersectsWith(j.Bounds))
+                        {
+                            kills++;
+                            this.Controls.Remove(j);
+                            ((PictureBox)j).Dispose();
+                            this.Controls.Remove(x);
+                            ((PictureBox)x).Dispose();
+                            zombiesList.Remove(((PictureBox)x));
+                            MakeZombies();
+                        }
+
             }
-
-
         }
 
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
+            if (gameOver)
+                return;
+
             // Картинки, направление, булевское значение движения
             if(e.KeyCode == Keys.Left)
             {
@@ -114,7 +165,7 @@ namespace TopDownshooter
                 goDown = false;
 
             // логика выстрела
-            if(e.KeyCode == Keys.Space && ammo > 0)
+            if(e.KeyCode == Keys.Space && ammo > 0 && !gameOver)
             {
                 ammo--;
                 ShootBullet(facing);
@@ -122,6 +173,9 @@ namespace TopDownshooter
                 if (ammo < 1)
                     DropAmmo();
             }
+
+            if (e.KeyCode == Keys.Enter && gameOver)
+                RestartGame();
         }
 
         private void ShootBullet(string direction)
@@ -169,8 +223,11 @@ namespace TopDownshooter
             for(int i = 0; i < 3; i++)
                 MakeZombies();
 
-            goUp = false; goDown = false;
-            goLeft = false; goRight = false;
+            goUp = false;
+            goDown = false;
+            goLeft = false;
+            goRight = false;
+            gameOver = false;
             playerHealth = 100;
             kills = 0;
             ammo = 10;
