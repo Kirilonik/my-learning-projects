@@ -81,7 +81,6 @@ namespace TopDownshooter
                     if (player.Bounds.IntersectsWith(x.Bounds))
                         playerHealth -= 1;
 
-
                     if(x.Left > player.Left)
                     {
                         x.Left -= zombieSpeed;
