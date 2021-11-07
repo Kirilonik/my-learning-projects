@@ -56,7 +56,7 @@ namespace TopDownshooter
                     break;
             }
 
-            if(bullet.Left < 10 || bullet.Left > 1200 || bullet.Top < 10 || bullet.Top > 620)
+            if(bullet.Left < 10 || bullet.Left > 1920 || bullet.Top < 20 || bullet.Top > 1080)
             {
                 bulletTimer.Stop();
                 bulletTimer.Dispose();

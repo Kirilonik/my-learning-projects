@@ -17,12 +17,25 @@ namespace TopDownshooter
             InitializeComponent();
         }
 
-        private void startGame_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
             Hide();
             Form1 fr1 = new Form1();
             fr1.ShowDialog();
             Close();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void KeyIsDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+                Close();
+            if (e.KeyCode == Keys.Enter)
+                label1_Click(sender, e);
         }
     }
 }

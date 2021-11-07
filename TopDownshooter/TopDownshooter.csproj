@@ -7,7 +7,7 @@
     <ProjectGuid>{EFF3E118-BC7E-4DDE-A18A-024ACE788D52}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>TopDownshooter</RootNamespace>
-    <AssemblyName>TopDownshooter</AssemblyName>
+    <AssemblyName>TopDownShooter</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -31,6 +31,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>zombie.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -119,6 +122,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\zup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\w %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\w %282%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\bg.png" />
+    <None Include="Images\bg1.png" />
+    <Content Include="zombie.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

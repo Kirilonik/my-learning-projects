@@ -199,8 +199,8 @@ namespace TopDownshooter
             PictureBox zombie = new PictureBox();
             zombie.Tag = "zombie";
             zombie.Image = Properties.Resources.zdown;
-            zombie.Left = randNum.Next(0, 900);
-            zombie.Top = randNum.Next(0, 800);
+            zombie.Left = randNum.Next(0, 1920);
+            zombie.Top = randNum.Next(0, 1080);
             zombie.SizeMode = PictureBoxSizeMode.AutoSize;
             zombiesList.Add(zombie);
             this.Controls.Add(zombie);
@@ -212,7 +212,7 @@ namespace TopDownshooter
             ammo.Image = Properties.Resources.ammo_Image;
             ammo.SizeMode = PictureBoxSizeMode.AutoSize;
             ammo.Left = randNum.Next(10, this.ClientSize.Width - ammo.Width);
-            ammo.Top = randNum.Next(10, this.ClientSize.Height - ammo.Height);
+            ammo.Top = randNum.Next(20, this.ClientSize.Height - ammo.Height);
             ammo.Tag = "ammo";
             this.Controls.Add(ammo);
 
@@ -228,7 +228,7 @@ namespace TopDownshooter
 
             zombiesList.Clear();
 
-            for(int i = 0; i < 3; i++)
+            for(int i = 0; i < 4; i++)
                 MakeZombies();
 
             goUp = false;
@@ -238,7 +238,7 @@ namespace TopDownshooter
             gameOver = false;
             playerHealth = 100;
             kills = 0;
-            ammo = 10;
+            ammo = 20;
 
             GameTimer.Start();
         }
