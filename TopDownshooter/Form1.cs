@@ -176,6 +176,13 @@ namespace TopDownshooter
 
             if (e.KeyCode == Keys.Enter && gameOver)
                 RestartGame();
+            if(e.KeyCode == Keys.Escape && gameOver)
+            {
+                Hide();
+                Form0 fr0 = new Form0();
+                fr0.ShowDialog();
+                this.Close();
+            }
         }
 
         private void ShootBullet(string direction)

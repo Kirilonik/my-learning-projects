@@ -1,0 +1,10 @@
+C:\Users\gamec\source\repos\TopDownshooter\bin\Release\TopDownshooter.exe.config
+C:\Users\gamec\source\repos\TopDownshooter\bin\Release\TopDownshooter.exe
+C:\Users\gamec\source\repos\TopDownshooter\bin\Release\TopDownshooter.pdb
+C:\Users\gamec\source\repos\TopDownshooter\obj\Release\TopDownshooter.csprojAssemblyReference.cache
+C:\Users\gamec\source\repos\TopDownshooter\obj\Release\TopDownshooter.Form1.resources
+C:\Users\gamec\source\repos\TopDownshooter\obj\Release\TopDownshooter.Properties.Resources.resources
+C:\Users\gamec\source\repos\TopDownshooter\obj\Release\TopDownshooter.csproj.GenerateResource.cache
+C:\Users\gamec\source\repos\TopDownshooter\obj\Release\TopDownshooter.csproj.CoreCompileInputs.cache
+C:\Users\gamec\source\repos\TopDownshooter\obj\Release\TopDownshooter.exe
+C:\Users\gamec\source\repos\TopDownshooter\obj\Release\TopDownshooter.pdb

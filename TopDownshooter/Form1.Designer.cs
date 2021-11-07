@@ -88,7 +88,7 @@ namespace TopDownshooter
             this.player.Image = global::TopDownshooter.Properties.Resources.up;
             this.player.Location = new System.Drawing.Point(605, 336);
             this.player.Name = "player";
-            this.player.Size = new System.Drawing.Size(71, 100);
+            this.player.Size = new System.Drawing.Size(59, 87);
             this.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.player.TabIndex = 4;
             this.player.TabStop = false;
@@ -128,6 +128,7 @@ namespace TopDownshooter
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kiirka Killer";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
