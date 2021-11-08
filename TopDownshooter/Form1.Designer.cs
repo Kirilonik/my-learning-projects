@@ -49,21 +49,24 @@ namespace TopDownshooter
             this.txtAmmo.ForeColor = System.Drawing.Color.White;
             this.txtAmmo.Location = new System.Drawing.Point(12, 9);
             this.txtAmmo.Name = "txtAmmo";
-            this.txtAmmo.Size = new System.Drawing.Size(114, 29);
+            this.txtAmmo.Size = new System.Drawing.Size(93, 24);
             this.txtAmmo.TabIndex = 0;
             this.txtAmmo.Text = "Ammo: 0";
             // 
             // txtKills
             // 
+            this.txtKills.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtKills.AutoSize = true;
             this.txtKills.BackColor = System.Drawing.Color.Transparent;
             this.txtKills.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtKills.ForeColor = System.Drawing.Color.White;
-            this.txtKills.Location = new System.Drawing.Point(924, 9);
+            this.txtKills.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.txtKills.Location = new System.Drawing.Point(865, 9);
             this.txtKills.Name = "txtKills";
-            this.txtKills.Size = new System.Drawing.Size(92, 29);
+            this.txtKills.Size = new System.Drawing.Size(71, 24);
             this.txtKills.TabIndex = 1;
             this.txtKills.Text = "Kills: 0";
+            this.txtKills.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Health
             // 
@@ -72,15 +75,17 @@ namespace TopDownshooter
             this.Health.BackColor = System.Drawing.Color.Transparent;
             this.Health.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Health.ForeColor = System.Drawing.Color.White;
-            this.Health.Location = new System.Drawing.Point(1664, 11);
+            this.Health.Location = new System.Drawing.Point(1655, 15);
             this.Health.Name = "Health";
-            this.Health.Size = new System.Drawing.Size(95, 29);
+            this.Health.Size = new System.Drawing.Size(76, 24);
             this.Health.TabIndex = 2;
             this.Health.Text = "Health ";
             // 
             // barHealth
             // 
             this.barHealth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.barHealth.BackColor = System.Drawing.Color.Black;
+            this.barHealth.ForeColor = System.Drawing.Color.Black;
             this.barHealth.Location = new System.Drawing.Point(1751, 13);
             this.barHealth.Name = "barHealth";
             this.barHealth.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -96,15 +101,17 @@ namespace TopDownshooter
             // 
             // pressEnter
             // 
+            this.pressEnter.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pressEnter.AutoSize = true;
             this.pressEnter.BackColor = System.Drawing.Color.Transparent;
             this.pressEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pressEnter.ForeColor = System.Drawing.Color.White;
             this.pressEnter.Location = new System.Drawing.Point(727, 459);
             this.pressEnter.Name = "pressEnter";
-            this.pressEnter.Size = new System.Drawing.Size(616, 138);
+            this.pressEnter.Size = new System.Drawing.Size(499, 110);
             this.pressEnter.TabIndex = 5;
-            this.pressEnter.Text = "Press Enter to restart\r\n     or ESC to Exit";
+            this.pressEnter.Text = "Press Enter to restart\r\nor ESC to Exit";
+            this.pressEnter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.pressEnter.Visible = false;
             // 
             // player
@@ -124,7 +131,8 @@ namespace TopDownshooter
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackgroundImage = global::TopDownshooter.Properties.Resources.bggggg__1_;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.Controls.Add(this.pressEnter);
             this.Controls.Add(this.barHealth);
@@ -132,6 +140,7 @@ namespace TopDownshooter
             this.Controls.Add(this.txtKills);
             this.Controls.Add(this.txtAmmo);
             this.Controls.Add(this.player);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -140,6 +149,7 @@ namespace TopDownshooter
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kiirka Killer";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();

@@ -151,6 +151,17 @@ namespace TopDownshooter
                 facing = "down";
                 player.Image = Properties.Resources.down;
             }
+            // логика выстрела
+            if (e.KeyCode == Keys.Space && ammo > 0 && !gameOver)
+            {
+                ammo--;
+                ShootBullet(facing);
+                if (ammo < 1)
+                {
+                    DropAmmo();
+                    DropAmmo();
+                }
+            }
         }
 
         private void KeyIsUp(object sender, KeyEventArgs e)
@@ -164,16 +175,6 @@ namespace TopDownshooter
             if (e.KeyCode == Keys.Down)
                 goDown = false;
 
-            // логика выстрела
-            if(e.KeyCode == Keys.Space && ammo > 0 && !gameOver)
-            {
-                ammo--;
-                ShootBullet(facing);
-
-                if (ammo < 1)
-                    DropAmmo();
-            }
-
             if (e.KeyCode == Keys.Enter && gameOver)
                 RestartGame();
             if(e.KeyCode == Keys.Escape && gameOver)
@@ -183,6 +184,14 @@ namespace TopDownshooter
                 fr0.ShowDialog();
                 this.Close();
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // размещаю надпись о рестарте по центру
+            pressEnter.Left = (Form1.ActiveForm.Width - pressEnter.Width) >> 1;
+            pressEnter.Top = (Form1.ActiveForm.Height - pressEnter.Height) >> 1;
+            txtKills.Left = (Form1.ActiveForm.Width - txtKills.Width) >> 1;
         }
 
         private void ShootBullet(string direction)
@@ -202,6 +211,7 @@ namespace TopDownshooter
             zombie.Left = randNum.Next(0, 1920);
             zombie.Top = randNum.Next(0, 1080);
             zombie.SizeMode = PictureBoxSizeMode.AutoSize;
+            zombie.BackColor = Color.Transparent;
             zombiesList.Add(zombie);
             this.Controls.Add(zombie);
             //player.BringToFront();
@@ -214,6 +224,7 @@ namespace TopDownshooter
             ammo.Left = randNum.Next(10, this.ClientSize.Width - ammo.Width);
             ammo.Top = randNum.Next(20, this.ClientSize.Height - ammo.Height);
             ammo.Tag = "ammo";
+            ammo.BackColor = Color.Transparent;
             this.Controls.Add(ammo);
 
             ammo.BringToFront();
