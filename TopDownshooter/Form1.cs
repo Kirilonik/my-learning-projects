@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,12 @@ namespace TopDownshooter
         int speed = 10;
         int ammo = 10;
         int zombieSpeed = 3;
+        static DirectoryInfo info = new DirectoryInfo(Directory.GetCurrentDirectory() + "\\sounds\\");
+        public System.Media.SoundPlayer sound_shoot = new System.Media.SoundPlayer(info.FullName + "shoot\\shoot_1.wav");
+        public System.Media.SoundPlayer sound_ammo = new System.Media.SoundPlayer(info.FullName+"ammo\\take_ammo.wav");
+        public System.Media.SoundPlayer sound_zombie_death = new System.Media.SoundPlayer(info.FullName + "zombie\\zombie_death.wav");
+        public System.Media.SoundPlayer sound_ambient = new System.Media.SoundPlayer(info.FullName + "ambient\\game_ambient_1.wav");
+
         Random randNum = new Random();
 
         List<PictureBox> zombiesList = new List<PictureBox>();
@@ -29,6 +36,7 @@ namespace TopDownshooter
         {
             InitializeComponent();
             RestartGame();
+
         }
 
         private void MainTimerEvent(object sender, EventArgs e)
@@ -43,6 +51,11 @@ namespace TopDownshooter
                 GameTimer.Stop();
                 gameOver = true;
                 pressEnter.Visible = true;
+                string filename = "TopScore.txt";
+                int TopScore = Int32.Parse(File.ReadAllText(filename));
+                txtBestScore.Text = $"Best score: {TopScore.ToString()}";
+                if ( TopScore < kills)
+                    File.WriteAllText(filename, kills.ToString());
             }
 
             // меняю цвет на красный если снарядов 0
@@ -70,6 +83,7 @@ namespace TopDownshooter
                 if(x is PictureBox && (string)x.Tag == "ammo")
                     if (player.Bounds.IntersectsWith(x.Bounds))
                     {
+                        sound_ammo.Play();
                         this.Controls.Remove(x);
                         ((PictureBox)x).Dispose();
                         ammo += 5;
@@ -109,6 +123,7 @@ namespace TopDownshooter
                         x is PictureBox && (string)x.Tag == "zombie")
                         if (x.Bounds.IntersectsWith(j.Bounds))
                         {
+                            sound_zombie_death.Play();
                             kills++;
                             this.Controls.Remove(j);
                             ((PictureBox)j).Dispose();
@@ -154,6 +169,7 @@ namespace TopDownshooter
             // логика выстрела
             if (e.KeyCode == Keys.Space && ammo > 0 && !gameOver)
             {
+                sound_shoot.Play();
                 ammo--;
                 ShootBullet(facing);
                 if (ammo < 1)
@@ -192,6 +208,10 @@ namespace TopDownshooter
             pressEnter.Left = (Form1.ActiveForm.Width - pressEnter.Width) >> 1;
             pressEnter.Top = (Form1.ActiveForm.Height - pressEnter.Height) >> 1;
             txtKills.Left = (Form1.ActiveForm.Width - txtKills.Width) >> 1;
+            // топ скор отображение
+            int TopScore = Int32.Parse(File.ReadAllText("TopScore.txt"));
+            txtBestScore.Text = $"Best score: {TopScore.ToString()}";
+            sound_ambient.PlayLooping();
         }
 
         private void ShootBullet(string direction)
