@@ -18,14 +18,15 @@ namespace TopDownshooter
         string facing = "up";
         int kills = 0;
         int playerHealth = 100;
-        int speed = 10;
+        int speed = 14;
         int ammo = 10;
-        int zombieSpeed = 3;
+        int zombieSpeed = 4;
+        int NUMZOMBIE = 8;
         static DirectoryInfo info = new DirectoryInfo(Directory.GetCurrentDirectory() + "\\sounds\\");
-        public System.Media.SoundPlayer sound_shoot = new System.Media.SoundPlayer(info.FullName + "shoot\\shoot_1.wav");
-        public System.Media.SoundPlayer sound_ammo = new System.Media.SoundPlayer(info.FullName+"ammo\\take_ammo.wav");
-        public System.Media.SoundPlayer sound_zombie_death = new System.Media.SoundPlayer(info.FullName + "zombie\\zombie_death.wav");
-        public System.Media.SoundPlayer sound_ambient = new System.Media.SoundPlayer(info.FullName + "ambient\\game_ambient_1.wav");
+        public SoundPlayer sound_shoot = new SoundPlayer();
+        public SoundPlayer sound_ammo = new SoundPlayer();
+        public SoundPlayer sound_zombie_death = new SoundPlayer();
+        public SoundPlayer sound_ambient = new SoundPlayer();
 
         Random randNum = new Random();
 
@@ -35,6 +36,11 @@ namespace TopDownshooter
         public Form1()
         {
             InitializeComponent();
+            sound_shoot.Open(info + @"shoot\shoot_1.wav", Program._devices[0]);
+            sound_ammo.Open(info+ @"ammo\take_ammo.wav", Program._devices[0]);
+            sound_zombie_death.Open(info + @"zombie\zombie_death.wav", Program._devices[0]);
+            sound_ambient.Open(info + @"ambient\game_ambient_2.mp3", Program._devices[0]);
+            sound_ambient.Volume = 30;
             RestartGame();
 
         }
@@ -46,6 +52,7 @@ namespace TopDownshooter
                 barHealth.Value = playerHealth;
             else
             {
+                sound_ambient.Stop();
                 gameOver = true;
                 player.Image = Properties.Resources.dead;
                 GameTimer.Stop();
@@ -211,7 +218,7 @@ namespace TopDownshooter
             // топ скор отображение
             int TopScore = Int32.Parse(File.ReadAllText("TopScore.txt"));
             txtBestScore.Text = $"Best score: {TopScore.ToString()}";
-            sound_ambient.PlayLooping();
+            sound_ambient.Play();
         }
 
         private void ShootBullet(string direction)
@@ -232,6 +239,7 @@ namespace TopDownshooter
             zombie.Top = randNum.Next(0, 1080);
             zombie.SizeMode = PictureBoxSizeMode.AutoSize;
             zombie.BackColor = Color.Transparent;
+            zombie.BringToFront();
             zombiesList.Add(zombie);
             this.Controls.Add(zombie);
             //player.BringToFront();
@@ -259,7 +267,7 @@ namespace TopDownshooter
 
             zombiesList.Clear();
 
-            for(int i = 0; i < 4; i++)
+            for(int i = 0; i < NUMZOMBIE; i++)
                 MakeZombies();
 
             goUp = false;

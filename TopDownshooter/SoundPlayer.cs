@@ -87,7 +87,10 @@ namespace TopDownshooter
 
         public void Play()
         {
+
             if (_soundOut != null)
+                if (_soundOut.WaveSource.Position > 0)
+                    _soundOut.WaveSource.Position = 0;
                 _soundOut.Play();
         }
 

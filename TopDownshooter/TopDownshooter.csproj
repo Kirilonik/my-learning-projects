@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>zombie.ico</ApplicationIcon>
+    <ApplicationIcon>Images\zombie.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CSCore, Version=1.2.1.2, Culture=neutral, PublicKeyToken=5a08f2b6f4415dea, processorArchitecture=MSIL">
@@ -52,7 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animation.cs" />
     <Compile Include="Bullet.cs" />
+    <Compile Include="DrawableObject.cs" />
     <Compile Include="Form0.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,11 +67,15 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="MovableObject.cs" />
+    <Compile Include="NPC.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SoundPlayer.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="World.cs" />
     <EmbeddedResource Include="Form0.resx">
       <DependentUpon>Form0.cs</DependentUpon>
     </EmbeddedResource>
@@ -141,7 +147,8 @@
     <None Include="Images\bg1.png" />
     <None Include="Images\bggggg.png" />
     <None Include="Images\bggggg %281%29.png" />
-    <Content Include="zombie.ico" />
+    <None Include="Images\blood_ef.png" />
+    <Content Include="Images\zombie.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

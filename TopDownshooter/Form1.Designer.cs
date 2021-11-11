@@ -91,7 +91,7 @@ namespace TopDownshooter
             this.barHealth.BackColor = System.Drawing.Color.Black;
             this.barHealth.ForeColor = System.Drawing.Color.Black;
             this.barHealth.Location = new System.Drawing.Point(1313, 11);
-            this.barHealth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.barHealth.Margin = new System.Windows.Forms.Padding(2);
             this.barHealth.Name = "barHealth";
             this.barHealth.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.barHealth.Size = new System.Drawing.Size(116, 21);
@@ -126,7 +126,7 @@ namespace TopDownshooter
             this.player.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.player.Image = global::TopDownshooter.Properties.Resources.up;
             this.player.Location = new System.Drawing.Point(422, 470);
-            this.player.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.player.Margin = new System.Windows.Forms.Padding(2);
             this.player.Name = "player";
             this.player.Size = new System.Drawing.Size(59, 87);
             this.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -167,7 +167,7 @@ namespace TopDownshooter
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";

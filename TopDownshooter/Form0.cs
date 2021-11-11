@@ -23,11 +23,11 @@ namespace TopDownshooter
 
         private void label1_Click(object sender, EventArgs e)
         {
+            sound_ambient.Stop();
             Hide();
             Form1 fr1 = new Form1();
             fr1.ShowDialog();
             Close();
-            sound_ambient.Stop();
         }
 
         private void label3_Click(object sender, EventArgs e)
