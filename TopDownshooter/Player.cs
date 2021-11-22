@@ -11,15 +11,16 @@ namespace TopDownshooter
         }
         public override void Move()
         {
-            World.WorldShift += speed.X;
+            World.WorldShift.X += speed.X;
+            World.WorldShift.Y += speed.Y;
         }
         public override void DrawImage(System.Drawing.Graphics gr)
         {
-            Image current = animation.GetImage();
-            gr.DrawImage(current, new Rectangle(new Point(location.X - (int)(current.Width * coef - size.Width) / 2,
-                location.Y - (int)(current.Height * coef - size.Height)), new Size((int)(current.Width * coef),
-                (int)(current.Height * coef))));
-            gr.DrawRectangle(Pens.Black, new Rectangle(location, size));
+            //Image current = animation.GetImage();
+            //gr.DrawImage(current, new Rectangle(new Point(location.X - (int)(current.Width * coef - size.Width) / 2,
+            //    location.Y - (int)(current.Height * coef - size.Height)), new Size((int)(current.Width * coef),
+            //    (int)(current.Height * coef))));
+            //gr.DrawRectangle(Pens.Black, new Rectangle(location, size));
         }
     }
 }

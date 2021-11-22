@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TopDownshooter
 {
     public partial class Form1 : Form
     {
+        System.Drawing.Graphics graphics;
+        BufferedGraphicsContext currentContext;
+        BufferedGraphics myBuffer;
+        Player p = new Player(new Point(250, 70), new Size(150, 150), Image.FromFile("Images\\up\\up.png"), new Point(0, 0));
+
+
         // Инициализация всех переменных
         bool goLeft, goRight, goUp, goDown, gameOver;
         string facing = "up";
@@ -40,9 +42,18 @@ namespace TopDownshooter
             sound_ammo.Open(info+ @"ammo\take_ammo.wav", Program._devices[0]);
             sound_zombie_death.Open(info + @"zombie\zombie_death.wav", Program._devices[0]);
             sound_ambient.Open(info + @"ambient\game_ambient_2.mp3", Program._devices[0]);
-            sound_ambient.Volume = 30;
+            sound_ambient.Volume = 40;
+            sound_shoot.Volume = 50;
             RestartGame();
 
+
+            currentContext = BufferedGraphicsManager.Current;
+            myBuffer = currentContext.Allocate(CreateGraphics(), DisplayRectangle);
+            graphics = myBuffer.Graphics;
+            foreach (var folder in Directory.GetDirectories(Animation.Path))
+            {
+                p.animation.LoadSprites(folder, Animation.StringToState[folder.Split('\\').Last<string>()]);
+            }
         }
 
         private void MainTimerEvent(object sender, EventArgs e)
@@ -58,6 +69,7 @@ namespace TopDownshooter
                 GameTimer.Stop();
                 gameOver = true;
                 pressEnter.Visible = true;
+
                 string filename = "TopScore.txt";
                 int TopScore = Int32.Parse(File.ReadAllText(filename));
                 txtBestScore.Text = $"Best score: {TopScore.ToString()}";
@@ -139,7 +151,6 @@ namespace TopDownshooter
                             zombiesList.Remove(((PictureBox)x));
                             MakeZombies();
                         }
-
             }
         }
 
@@ -254,9 +265,6 @@ namespace TopDownshooter
             ammo.Tag = "ammo";
             ammo.BackColor = Color.Transparent;
             this.Controls.Add(ammo);
-
-            ammo.BringToFront();
-            //player.BringToFront();
         }
         private void RestartGame()
         {

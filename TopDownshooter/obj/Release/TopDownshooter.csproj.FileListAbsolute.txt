@@ -8,17 +8,3 @@ C:\Users\gamec\source\repos\TopDownshooter\obj\Release\TopDownshooter.csproj.Gen
 C:\Users\gamec\source\repos\TopDownshooter\obj\Release\TopDownshooter.csproj.CoreCompileInputs.cache
 C:\Users\gamec\source\repos\TopDownshooter\obj\Release\TopDownshooter.exe
 C:\Users\gamec\source\repos\TopDownshooter\obj\Release\TopDownshooter.pdb
-C:\Users\gamec\source\repos\my-learning-projects\TopDownshooter\bin\Release\TopDownShooter.exe.config
-C:\Users\gamec\source\repos\my-learning-projects\TopDownshooter\bin\Release\TopDownShooter.exe
-C:\Users\gamec\source\repos\my-learning-projects\TopDownshooter\bin\Release\TopDownShooter.pdb
-C:\Users\gamec\source\repos\my-learning-projects\TopDownshooter\bin\Release\CSCore.dll
-C:\Users\gamec\source\repos\my-learning-projects\TopDownshooter\bin\Release\CSCore.xml
-C:\Users\gamec\source\repos\my-learning-projects\TopDownshooter\obj\Release\TopDownshooter.csprojAssemblyReference.cache
-C:\Users\gamec\source\repos\my-learning-projects\TopDownshooter\obj\Release\TopDownshooter.Form0.resources
-C:\Users\gamec\source\repos\my-learning-projects\TopDownshooter\obj\Release\TopDownshooter.Form1.resources
-C:\Users\gamec\source\repos\my-learning-projects\TopDownshooter\obj\Release\TopDownshooter.Properties.Resources.resources
-C:\Users\gamec\source\repos\my-learning-projects\TopDownshooter\obj\Release\TopDownshooter.csproj.GenerateResource.cache
-C:\Users\gamec\source\repos\my-learning-projects\TopDownshooter\obj\Release\TopDownshooter.csproj.CoreCompileInputs.cache
-C:\Users\gamec\source\repos\my-learning-projects\TopDownshooter\obj\Release\TopDownshooter.csproj.CopyComplete
-C:\Users\gamec\source\repos\my-learning-projects\TopDownshooter\obj\Release\TopDownShooter.exe
-C:\Users\gamec\source\repos\my-learning-projects\TopDownshooter\obj\Release\TopDownShooter.pdb

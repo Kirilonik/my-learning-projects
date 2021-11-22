@@ -19,7 +19,8 @@ namespace TopDownshooter
         }
         void UpdateLocation()
         {
-            location.X = StartLocation.X - World.WorldShift;
+            location.X = StartLocation.X - World.WorldShift.X;
+            location.Y = StartLocation.Y - World.WorldShift.Y;
         }
         public virtual void DrawImage(System.Drawing.Graphics gr)
         {

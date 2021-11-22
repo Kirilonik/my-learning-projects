@@ -1,0 +1,14 @@
+C:\Users\gamec\source\repos\my-learning-projects\TopDownshooter\bin\Debug\TopDownShooter.exe.config
+C:\Users\gamec\source\repos\my-learning-projects\TopDownshooter\bin\Debug\TopDownShooter.exe
+C:\Users\gamec\source\repos\my-learning-projects\TopDownshooter\bin\Debug\TopDownShooter.pdb
+C:\Users\gamec\source\repos\my-learning-projects\TopDownshooter\bin\Debug\CSCore.dll
+C:\Users\gamec\source\repos\my-learning-projects\TopDownshooter\bin\Debug\CSCore.xml
+C:\Users\gamec\source\repos\my-learning-projects\TopDownshooter\obj\Debug\TopDownshooter.Form0.resources
+C:\Users\gamec\source\repos\my-learning-projects\TopDownshooter\obj\Debug\TopDownshooter.Form1.resources
+C:\Users\gamec\source\repos\my-learning-projects\TopDownshooter\obj\Debug\TopDownshooter.Properties.Resources.resources
+C:\Users\gamec\source\repos\my-learning-projects\TopDownshooter\obj\Debug\TopDownshooter.csproj.GenerateResource.cache
+C:\Users\gamec\source\repos\my-learning-projects\TopDownshooter\obj\Debug\TopDownshooter.csproj.CoreCompileInputs.cache
+C:\Users\gamec\source\repos\my-learning-projects\TopDownshooter\obj\Debug\TopDownshooter.csproj.CopyComplete
+C:\Users\gamec\source\repos\my-learning-projects\TopDownshooter\obj\Debug\TopDownShooter.exe
+C:\Users\gamec\source\repos\my-learning-projects\TopDownshooter\obj\Debug\TopDownShooter.pdb
+C:\Users\gamec\source\repos\my-learning-projects\TopDownshooter\obj\Debug\TopDownshooter.csprojAssemblyReference.cache
